@@ -3997,7 +3997,7 @@ name = "solana-accounts-bench"
 version = "1.8.0"
 dependencies = [
  "clap 2.33.3",
- "crossbeam-channel 0.4.4",
+ "crossbeam-channel 0.5.0",
  "log 0.4.11",
  "rand 0.7.3",
  "rayon",
@@ -4038,7 +4038,7 @@ name = "solana-banking-bench"
 version = "1.8.0"
 dependencies = [
  "clap 2.33.3",
- "crossbeam-channel 0.4.4",
+ "crossbeam-channel 0.5.0",
  "log 0.4.11",
  "rand 0.7.3",
  "rayon",
@@ -4388,7 +4388,7 @@ dependencies = [
  "byteorder",
  "chrono",
  "core_affinity",
- "crossbeam-channel 0.4.4",
+ "crossbeam-channel 0.5.0",
  "ed25519-dalek",
  "flate2",
  "fs_extra",
@@ -4757,7 +4757,7 @@ dependencies = [
  "byteorder",
  "chrono",
  "chrono-humanize",
- "crossbeam-channel 0.4.4",
+ "crossbeam-channel 0.5.0",
  "dlopen",
  "dlopen_derive",
  "ed25519-dalek",
@@ -4845,7 +4845,7 @@ name = "solana-local-cluster"
 version = "1.8.0"
 dependencies = [
  "assert_matches",
- "crossbeam-channel 0.4.4",
+ "crossbeam-channel 0.5.0",
  "fs_extra",
  "gag",
  "itertools",
@@ -5208,7 +5208,7 @@ dependencies = [
  "bv",
  "byteorder",
  "bzip2",
- "crossbeam-channel 0.4.4",
+ "crossbeam-channel 0.5.0",
  "dashmap",
  "dir-diff",
  "flate2",
