@@ -16,10 +16,14 @@ use solana_clap_utils::{
 use solana_cli_config::{Config, CONFIG_FILE};
 use solana_remote_wallet::remote_wallet::RemoteWalletManager;
 use solana_sdk::{
+    derivation_path::DerivationPath,
     instruction::{AccountMeta, Instruction},
     message::Message,
     pubkey::{write_pubkey_file, Pubkey},
-    signature::{keypair_from_seed, write_keypair, write_keypair_file, Keypair, Signer},
+    signature::{
+        keypair_from_seed, keypair_from_seed_and_derivation_path, write_keypair,
+        write_keypair_file, Keypair, Signer,
+    },
 };
 use std::{
     collections::HashSet,
@@ -704,7 +708,11 @@ fn do_main(matches: &ArgMatches<'_>) -> Result<(), Box<dyn error::Error>> {
                         let (keypair, phrase) = if use_mnemonic {
                             let mnemonic = Mnemonic::new(mnemonic_type, language);
                             let seed = Seed::new(&mnemonic, &passphrase);
-                            (keypair_from_seed(seed.as_bytes()).unwrap(), mnemonic.phrase().to_string())
+                            let derivation_path = Some(DerivationPath::new_bip44(Some(0), Some(0)));
+                            (
+                                keypair_from_seed_and_derivation_path(seed.as_bytes(), derivation_path).unwrap(),
+                                mnemonic.phrase().to_string(),
+                            )
                         } else {
                             (Keypair::new(), "".to_string())
                         };
